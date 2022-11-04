@@ -11,7 +11,7 @@ app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.render("index", { messages: messages.reverse() });
+  res.render("index", { messages: [...messages].reverse() });
 });
 
 app.post("/api/messages", (req, res) => {
