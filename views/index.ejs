@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Message app</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <h1>Welcome, post some messages!</h1>
+
+      <form action="/api/messages" method="POST">
+        <input type="text" placeholder="Your name" name="name" />
+        <input type="text" placeholder="Your message" name="message" />
+        <button type="submit">Send!</button>
+      </form>
+
+      <ul class="messages">
+        <% messages.forEach(message => { %>
+        <li class="message-box">
+          <p class="user"><%= message.user %></p>
+          <p class="text"><%= message.text %></p>
+        </li>
+        <% }); %>
+      </ul>
+    </main>
+  </body>
+</html>
